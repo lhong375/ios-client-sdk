@@ -33,6 +33,7 @@ const NSTimeInterval minDelayInterval = 1.0;
 }
 
 -(void)runThrottled:(void (^)(void))runBlock {
+  /*
     if (!runBlock) { return; }
     if (self.delayInterval == self.maxDelayInterval) {
         self.runAttempts += 1;
@@ -59,6 +60,7 @@ const NSTimeInterval minDelayInterval = 1.0;
     if (self.runAttempts > 1) {
         DEBUG_LOG(@"Throttler throttling run block. Run Attempts: %ld Delay: %0.2f", (unsigned long)self.runAttempts, self.delayInterval);
     }
+    */
 }
 
 -(NSTimeInterval)delayIntervalForRunAttempts:(NSUInteger)runAttempts {
