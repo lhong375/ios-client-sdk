@@ -33,6 +33,14 @@ const NSTimeInterval minDelayInterval = 1.0;
 }
 
 -(void)runThrottled:(void (^)(void))runBlock {
+  NSDictionary *environment = [[NSProcessInfo processInfo] environment];
+  NSString *BUILD_FOR_DETOX = [environment objectForKey:@"BUILD_FOR_DETOX"];
+  //NSString * BUILD_FOR_DETOX = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"BUILD_FOR_DETOX"];
+  if ([@"NO" isEqualToString:BUILD_FOR_DETOX]) {
+    NSLog(@"BUILD_FOR_DETOX NO %s", BUILD_FOR_DETOX);
+  } else {
+    NSLog(@"BUILD_FOR_DETOX YES %s", BUILD_FOR_DETOX);
+  }
   /*
     if (!runBlock) { return; }
     if (self.delayInterval == self.maxDelayInterval) {
